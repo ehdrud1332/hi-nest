@@ -2,6 +2,7 @@
 // 모듈은 어플리케이션의 일부분이다.
 import { Module } from '@nestjs/common';
 import { MoviesController } from './movies/movies.controller';
+import { MoviesService } from './movies/movies.service';
 
 //데코레이터는 클래스에 함수기능을 추가할 수 있다.
 //클래스 위의 함수이고, 클래스를 위해 움직인다고 생각하면 좋다.
@@ -11,7 +12,7 @@ import { MoviesController } from './movies/movies.controller';
 @Module({
   imports: [],
   controllers: [MoviesController],
-  providers: [],
+  providers: [MoviesService],
 })
 // root module 이라고 이해하면 좋을 것 같다.
 // AppModule에서는 우리가 하는 모든걸 import 한다.

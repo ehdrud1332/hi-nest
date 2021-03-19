@@ -2,13 +2,14 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { Movie } from './entities/movie.entity';
 import { CreateMovieDto } from './dto/create-movie.dto';
 import { UpdateMovieDto } from './dto/update-movie.dto';
+import { type } from 'os';
 
 @Injectable()
 export class MoviesService {
   private movies: Movie[] = [];
 
   getAll(): Movie[] {
-    return this.movies; 
+    return this.movies;
   }
 
   getOne(id: number): Movie {

@@ -87,5 +87,25 @@ create(@Body() movieData: CreateMovieDto) {
 - 유효성 검사용 파이프를 만든다.
 - validationPipe는 매우 유용하다. 왜냐면 유효성 검사를 해주기 때문이다.
 - whitelist가 true면 decorator 없는 property의 object를 거른다.
-- transform이 true
+- transform이 true면 유저들이 보낸 data를 우리가 원하는 실제 타입으로 변환해준다.
 
+~~~ts
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  app.useGlobalPipes(
+    new ValidationPipe({
+      // whitelist는 true로 설정하면 아무 데코레이터도 없는 어떠한 property의 object를 거른다.
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      // transform은 유저들이 보낸 것을 우리가 원하는 실제 타입으로 변환해준다.
+      transform: true,
+    }),
+  );
+  await app.listen(3000);
+}
+bootstrap();
+~~~
+
+## TO DO LIST
+- [ ]  다양한 API만들어 보기
+- [ ]  TypeScript 더 알아보기

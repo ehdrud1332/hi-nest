@@ -13,7 +13,6 @@
 "Typescript"
 "NestJS"
 "Jest"
-"OOP"
 ]
 ~~~
 
@@ -83,4 +82,10 @@ create(@Body() movieData: CreateMovieDto) {
     return this.moviesService.update(movieId, updateData);
   }
 ~~~
+
+#### Pipes
+- 유효성 검사용 파이프를 만든다.
+- validationPipe는 매우 유용하다. 왜냐면 유효성 검사를 해주기 때문이다.
+- whitelist가 true면 decorator 없는 property의 object를 거른다.
+- transform이 true
 
